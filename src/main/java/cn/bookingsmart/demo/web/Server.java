@@ -1,9 +1,7 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.exception.BusinessException;
-import cn.bookingsmart.base.result.BusinessProcessError;
-import cn.bookingsmart.base.result.Response;
 import cn.bookingsmart.demo.domain.QueryVo;
+import cn.bookingsmart.result.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;

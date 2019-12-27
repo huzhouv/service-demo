@@ -1,7 +1,7 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.result.Response;
 import cn.bookingsmart.redis.RedisClient;
+import cn.bookingsmart.result.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

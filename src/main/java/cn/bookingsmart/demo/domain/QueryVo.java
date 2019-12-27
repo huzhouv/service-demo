@@ -1,9 +1,9 @@
 package cn.bookingsmart.demo.domain;
 
-import cn.bookingsmart.base.query.order.OrderBy;
-import cn.bookingsmart.base.query.order.OrderType;
-import cn.bookingsmart.base.query.rule.Equal;
-import cn.bookingsmart.base.query.rule.Like;
+import cn.bookingsmart.query.order.OrderBy;
+import cn.bookingsmart.query.order.OrderType;
+import cn.bookingsmart.query.rule.Equal;
+import cn.bookingsmart.query.rule.Like;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 

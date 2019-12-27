@@ -1,8 +1,8 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.result.Response;
 import cn.bookingsmart.demo.client.CallerFeignClient;
 import cn.bookingsmart.demo.domain.QueryVo;
+import cn.bookingsmart.result.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

@@ -1,8 +1,8 @@
 package cn.bookingsmart.demo.client;
 
-import cn.bookingsmart.base.result.Response;
 import cn.bookingsmart.demo.domain.QueryVo;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import cn.bookingsmart.result.Response;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

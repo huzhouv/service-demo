@@ -1,6 +1,6 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.result.Response;
+import cn.bookingsmart.result.Response;
 import cn.bookingsmart.sm.client.SmsClient;
 import cn.bookingsmart.sm.client.constant.BusinessType;
 import cn.bookingsmart.sm.client.domain.Sms;
