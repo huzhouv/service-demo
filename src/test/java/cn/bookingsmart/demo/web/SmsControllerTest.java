@@ -1,6 +1,6 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.http.RestClient;
+import cn.bookingsmart.http.RestClient;
 import org.junit.Test;
 
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 package cn.bookingsmart.demo.web;
 
-import cn.bookingsmart.base.http.RestClient;
 import cn.bookingsmart.demo.domain.QueryVo;
 import cn.bookingsmart.demo.util.Querys;
+import cn.bookingsmart.http.RestClient;
 import org.junit.Test;
 
 /**

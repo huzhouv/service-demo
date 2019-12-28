@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableJsonErrors
-@EnableFeignClients
+@EnableFeignClients(basePackages = "cn.bookingsmart")
 @EnableEurekaClient
 public class ServiceDemoApplication {
     public static void main(String[] args) {
