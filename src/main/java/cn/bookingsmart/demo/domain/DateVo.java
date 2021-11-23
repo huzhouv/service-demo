@@ -1,6 +1,5 @@
 package cn.bookingsmart.demo.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +26,7 @@ public class DateVo {
 	private Long id;
 	private String desc;
 	// 测试不指定日期格式，是否能序列化和反序列化，指定指定时区，否则时区不正确
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	// @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createTime;
 
 	//~ Constructors

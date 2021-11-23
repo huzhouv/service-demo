@@ -68,9 +68,9 @@ spring:
   jackson:
     locale: zh_CN
     # 测试不指定jackson序列化日期格式，是否能成功序列化和反序列化
-    date-format: yyyy-MM-dd HH:mm:ss
+#    date-format: yyyy-MM-dd HH:mm:ss
     # 指定(反)序列化json时日期的时区
-    time-zone: GMT+8
+#    time-zone: GMT+8
 
 system:
   credential:

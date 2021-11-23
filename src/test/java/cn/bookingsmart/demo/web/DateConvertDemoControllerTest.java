@@ -43,6 +43,13 @@ public class DateConvertDemoControllerTest {
 		// 输出：{"id":1,"desc":"当前日期","createTime":"2021-11-23 12:17:00"}
 	}
 
+	@Test
+	public void testDateJson1() {
+		String json = "{\"id\":1,\"desc\":\"当前日期\",\"createTime\":" + new Date().getTime() + "}";
+		DateVo dateVo = JacksonUtil.fromJson(json, DateVo.class);
+		System.out.println(dateVo);
+	}
+
 	// ==== 测试服务器未配置spring.jackson.date-format时，默认序列化和反序列化的方式和正确性
 	// 两种方式测试：1、直接调用接口；2、通过Feign客户端
 
@@ -93,6 +100,7 @@ public class DateConvertDemoControllerTest {
 
 	@Test
 	public void testFeignPostWithoutDateFormat() {
+		// yyyy-MM-dd'T'HH:mm:ss.SSSXXX
 		String json = "{\"id\":1,\"desc\":\"当前日期\",\"createTime\":\"2021-11-23T11:58:35.961+0800\"}";
 		DateVo dateVo = JacksonUtil.fromJson(json, DateVo.class);
 		Assert.notNull(dateVo);
@@ -153,6 +161,7 @@ public class DateConvertDemoControllerTest {
 	@Test
 	public void testFeignPostWithDateFormat() {
 		String json = "{\"id\":1,\"desc\":\"当前日期\",\"createTime\":\"2021-11-23 13:16:42\"}";
+
 		// 由于spring将日期格式化为固定格式，因此，DateVo上的createTime必须指定相同的反序列化时的日期格式（@JsonFormat），否则不能成功反序列化
 		// 并且，spring.jackson.timeZone中指定了时区，DateVo中同样需要指定时区，否则时区不正确
 		DateVo dateVo = JacksonUtil.fromJson(json, DateVo.class);
@@ -160,5 +169,15 @@ public class DateConvertDemoControllerTest {
 		String result = RestClient.post(service_uri + "/date/feign", dateVo);
 		System.out.println(result);
 		// 输出：{"rtnCode":0,"rtnMsg":"ok","data":"1: 当前日期, Tue Nov 23 11:16:42 CST 2021"}
+	}
+
+	@Test
+	public void testFeignPostWithDateFormatByLong() {
+		// createTime传递long，Spring仍然能够解析，见：HandlerMethodArgumentResolverComposite的resolveArgument方法，底层实际上
+		// 还是利用: MappingJackson2HttpMessageConverter的read方法来转换
+		String json = "{\"id\":1,\"desc\":\"当前日期\",\"createTime\":" + new Date().getTime() + "}";
+		String result = RestClient.post(service_uri + "/date/feign", json);
+		System.out.println(result);
+		// 输出：{"rtnCode":0,"rtnMsg":"ok","data":"1: 当前日期, Tue Nov 23 16:16:52 CST 2021"}
 	}
 }
