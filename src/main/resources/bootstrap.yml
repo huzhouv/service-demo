@@ -1,0 +1,84 @@
+# log
+logging:
+  level:
+    root: info
+server:
+  port: 1314
+spring:
+  profiles:
+    active: uat
+  application:
+    name: service-demo
+  # servlet
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  cloud:
+    nacos:
+      # config center
+      config:
+        file-extension: yaml
+        server-addr: ${spring.cloud.nacos.server-addr}
+        name: service-demo
+      # service discovery
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+---
+spring:
+  profiles: uat
+  cloud:
+    nacos:
+      server-addr: nacos-uat.abcbooking.cn:80
+      discovery:
+        ip: 192.168.0.102
+        namespace: uat
+      config:
+        namespace: uat
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://192.168.0.31:3306/service-demo?serverTimezone=UTC
+    username: root
+    password: AbcRootMysql123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # jpa
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database: mysql
+    open-in-view: false
+  redis:
+    host: 192.168.0.31
+    password: hmp_uat
+    port: 6379
+    timeout: 2000
+    database: 0
+  # thymeleaf template
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+    suffix: .html
+    # json配置
+  jackson:
+    locale: zh_CN
+    # 测试不指定jackson序列化日期格式，是否能成功序列化和反序列化
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 指定(反)序列化json时日期的时区
+    time-zone: GMT+8
+
+system:
+  credential:
+    appId: HOTEL-0571-0000
+    appSecret: fbe938c4bfe0a7cda1dcae7c85c7f83e37736207d637dc1a
+
+# redis序列化配置
+redis:
+  serialize:
+    type: JACKSON
+    serializeKey: false

@@ -1,18 +1,16 @@
 package cn.bookingsmart.demo;
 
-import cn.bookingsmart.annotation.EnableJsonErrors;
+import cn.bookingsmart.annotation.EnableFrameworkExt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableJsonErrors
 @EnableFeignClients(basePackages = "cn.bookingsmart")
-@EnableEurekaClient
+@EnableFrameworkExt
 public class ServiceDemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ServiceDemoApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ServiceDemoApplication.class, args);
+	}
 }
 

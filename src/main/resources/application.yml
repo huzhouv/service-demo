@@ -1,0 +1,12 @@
+# log
+
+system:
+  credential:
+    appId: HOTEL-0571-0000
+    appSecret: fbe938c4bfe0a7cda1dcae7c85c7f83e37736207d637dc1a
+
+# redis序列化配置
+redis:
+  serialize:
+    type: JACKSON
+    serializeKey: false
