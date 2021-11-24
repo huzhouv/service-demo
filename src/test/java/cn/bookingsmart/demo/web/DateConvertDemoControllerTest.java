@@ -40,7 +40,7 @@ public class DateConvertDemoControllerTest {
 	public void testDateJson() {
 		DateVo dateVo = DateVo.builder().id(1L).desc("当前日期").createTime(new Date()).build();
 		System.out.println(JacksonUtil.toJson(dateVo));
-		// 输出：{"id":1,"desc":"当前日期","createTime":"2021-11-23 12:17:00"}
+		// 输出：{"id":1,"desc":"当前日期","createTime":1637722397040}
 	}
 
 	@Test
