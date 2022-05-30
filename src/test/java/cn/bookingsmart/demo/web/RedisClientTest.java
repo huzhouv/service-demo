@@ -189,7 +189,7 @@ public class RedisClientTest extends ServiceDemoApplicationTests {
         // set value with expired
 
         randomInt = random.nextInt(200);
-        redisClient.set(key, randomInt, 1);
+        redisClient.set(key, randomInt, (Integer) 1);
         Thread.sleep(1000);
         v = redisClient.get(key);
         Assert.assertNull(v);
@@ -251,7 +251,7 @@ public class RedisClientTest extends ServiceDemoApplicationTests {
 
         // length
 
-        v = redisClient.length(key);
+        v = redisClient.size(key);
         Assert.assertEquals(81L, v);
     }
 
